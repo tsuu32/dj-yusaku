@@ -9,48 +9,37 @@
 import UIKit
 import MediaPlayer
 
-class ViewController: UIViewController, MPMediaPickerControllerDelegate {
+class FirstViewController: UIViewController {
     
-    var player :MPMusicPlayerController!
+    let fromAppDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//    var firstViewPlayer :MPMusicPlayerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        player = MPMusicPlayerController.applicationMusicPlayer
+        
+//        firstViewPlayer = self.fromAppDelegate.player
+//        firstViewPlayer = GlobalVar.shared
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func jumpToLibraryButton(_ sender: Any) {
-        let picker = MPMediaPickerController()
-        picker.delegate = self
-        picker.allowsPickingMultipleItems = true
-        present(picker, animated: true, completion: nil)
-    }
-    func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
-        player.setQueue(with: mediaItemCollection)
-        player.play()
-        dismiss(animated: true, completion: nil)
-    }
-    func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
-        
-        dismiss(animated: true, completion: nil)
-    }
+    
     @IBAction func playButton(_ sender: Any) {
 //        print("play")
-        player.play()
+        AppDelegate.player.play()
     }
     
     @IBAction func pauseButton(_ sender: Any) {
 //        print("pause")
-        player.pause()
+        AppDelegate.player.pause()
     }
     
     @IBAction func stopButton(_ sender: Any) {
 //        print("stop")
-        player.stop()
+        print(AppDelegate.player)
+        AppDelegate.player.stop()
     }
 }

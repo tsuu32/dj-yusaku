@@ -51,14 +51,6 @@
                                     <action selector="stopButtoon:" destination="9pv-A4-QxB" eventType="touchUpInside" id="PZG-Pe-eIh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DlF-Xy-dAJ">
-                                <rect key="frame" x="159" y="350" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="ライブラリを開く"/>
-                                <connections>
-                                    <action selector="jumpToLibraryButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="0FB-Hk-0jL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>

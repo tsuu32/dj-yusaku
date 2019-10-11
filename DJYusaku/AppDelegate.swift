@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import MediaPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+//    var player = MPMusicPlayerController.applicationMusicPlayer
+    static let player = MPMusicPlayerController.applicationMusicPlayer
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -34,4 +37,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
 
