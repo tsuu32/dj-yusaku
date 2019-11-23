@@ -19,7 +19,8 @@ class RequestsViewController: UIViewController {
     @IBOutlet weak var playingTitle: UILabel!
     @IBOutlet weak var playButton: UIButton!
     
-    private var isViewAppearedAtLeastOnce: Bool = false;
+    private var isCapableAppleMusic: Bool = false
+    private var isViewAppearedAtLeastOnce: Bool = false
     
     private let cloudServiceController = SKCloudServiceController()
     private let defaultArtwork : UIImage = UIImage()
@@ -43,7 +44,9 @@ class RequestsViewController: UIViewController {
             guard status == .authorized else { return }
             // Apple Musicの曲が再生可能か確認
             self.cloudServiceController.requestCapabilities { (capabilities, error) in
-                guard error == nil && capabilities.contains(.musicCatalogPlayback) else { return }
+                if error == nil && capabilities.contains(.musicCatalogPlayback) {
+                    self.isCapableAppleMusic = true
+                }
             }
         }
         
@@ -62,8 +65,10 @@ class RequestsViewController: UIViewController {
         if !self.isViewAppearedAtLeastOnce {  // 初回だけ表示する画面遷移に使う
             // 初回にはWelcomeViewをモーダルを表示
             let storyboard: UIStoryboard = self.storyboard!
-            let welcomNavigationController = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigation")
+            let welcomNavigationController = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigation") as! UINavigationController
             welcomNavigationController.isModalInPresentation = true
+            let welcomeViewController = welcomNavigationController.viewControllers.first as! WelcomeViewController
+            welcomeViewController.isCapableAppleMusic = self.isCapableAppleMusic
             self.present(welcomNavigationController, animated: true)
             
             // 2度目以降の表示はしない

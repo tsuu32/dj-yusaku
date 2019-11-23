@@ -12,9 +12,13 @@ import MultipeerConnectivity
 class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var doneButtonItem: UIBarButtonItem!
+    @IBOutlet weak var joinAsDJ: UIButton!
+    var isCapableAppleMusic: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        joinAsDJ.isEnabled = isCapableAppleMusic
     }
     
     override func viewWillAppear(_ animated: Bool) {
