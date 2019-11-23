@@ -23,7 +23,7 @@ class RequestsViewController: UIViewController {
     private var isViewAppearedAtLeastOnce: Bool = false
     
     private let cloudServiceController = SKCloudServiceController()
-    private let defaultArtwork : UIImage = UIImage()
+    private let defaultArtwork: UIImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()

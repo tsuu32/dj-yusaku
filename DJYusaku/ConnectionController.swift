@@ -112,13 +112,13 @@ extension ConnectionController: MCSessionDelegate {
         } else {                                    // リスナーがデータを受け取ったとき
             let messageData = try! JSONDecoder().decode(MessageData.self, from: data)
             switch messageData.desc {
-                case MessageData.Name.requestSongs:
-                    let songs = try! JSONDecoder().decode([Song].self, from: messageData.value)
-                    receivedSongs = songs
-                    NotificationCenter.default.post(name: .DJYusakuPlayerQueueDidUpdate, object: nil)
-                case MessageData.Name.nowPlaying:
-                    let nowPlaying = try! JSONDecoder().decode(Song.self, from: messageData.value)
-                    NotificationCenter.default.post(name: .DJYusakuConnectionControllerNowPlayingSongDidChange, object: nil, userInfo: ["song": nowPlaying as Any])
+            case MessageData.Name.requestSongs:
+                let songs = try! JSONDecoder().decode([Song].self, from: messageData.value)
+                receivedSongs = songs
+                NotificationCenter.default.post(name: .DJYusakuPlayerQueueDidUpdate, object: nil)
+            case MessageData.Name.nowPlaying:
+                let nowPlaying = try! JSONDecoder().decode(Song.self, from: messageData.value)
+                NotificationCenter.default.post(name: .DJYusakuConnectionControllerNowPlayingSongDidChange, object: nil, userInfo: ["song": nowPlaying as Any])
             }
         }
         

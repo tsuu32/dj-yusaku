@@ -17,7 +17,7 @@ extension Notification.Name {
     static let DJYusakuPlayerQueuePlaybackStateDidChange = Notification.Name("DJYusakuPlayerQueuePlaybackStateDidChange")
 }
 
-class PlayerQueue{
+class PlayerQueue {
     static let shared = PlayerQueue()
     let mpAppController = MPMusicPlayerController.applicationQueuePlayer
     
