@@ -37,8 +37,6 @@ class ConnectionController: NSObject {
     
     var iconURL: URL?
     
-    var iconURLCorrespondence: [MCPeerID:URL] = [:]
-    
     func initialize(isDJ: Bool, displayName: String) {
         self.isDJ = isDJ
         self.connectableDJs.removeAll()
